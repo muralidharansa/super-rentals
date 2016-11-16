@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'super-rentals',
     environment: environment,
     rootURL: '/',
+	baseURL: '/emberdemo',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -45,6 +46,11 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
-
+	ENV.contentSecurityPolicy = {  
+		'script-src': "'self' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com",
+		'img-src': "'self' https://*.googleapis.com https://*.gstatic.com",
+		'font-src': "'self' https://*.gstatic.com",
+		'style-src': "'self' 'unsafe-inline' https://*.googleapis.com"
+	}
   return ENV;
 };
